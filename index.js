@@ -6,7 +6,7 @@
  * @version    17/7/11
  */
 const fs = require('fs');
-const mime = require('mime');
+const mime = require('mime-types');
 const lib = require('think_lib');
 /**
  * default options
@@ -141,7 +141,7 @@ const doUploadLocal = function (options, file) {
  */
 const doUpload = function* (options, ctx, file) {
     if (!lib.isEmpty(file.originalFilename) && !lib.isEmpty(file.path) && !lib.isEmpty(file.size)) {
-        let mimetype = mime.extension(mime.lookup(file.path));
+        let mimetype = mime.extension(file.type);
         if ((options.file_allow_type || '').split('|').indexOf(mimetype) < 0) {
             ctx.throw('上传的文件类型非法');
         }
@@ -163,7 +163,7 @@ const doUpload = function* (options, ctx, file) {
                 break;
         }
         if (!lib.isEmpty(newFileUrl)) {
-            return { filename: file.newFileName, fileurl: newFileUrl, filesize: file.size };
+            return { filename: file.newFileName, fileurl: newFileUrl, filesize: file.size, fileType: mimetype };
         } else {
             ctx.throw('上传文件错误');
             return null;
@@ -193,7 +193,7 @@ const upload = function (options, ctx) {
 module.exports = function (options) {
     options = options ? lib.extend(defaultOptions, options, true) : defaultOptions;
     return function (ctx, next) {
-        lib.define(ctx, 'uploadFile', function (){
+        lib.define(ctx, 'uploadFile', function () {
             return upload(options, ctx);
         });
         return next();
