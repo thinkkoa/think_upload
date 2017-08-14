@@ -41,7 +41,7 @@ module.exports = function (options) {
             if (!lib.isEmpty(ctx._file)) {
                 let ps = [];
                 for (let n in ctx._file) {
-                    ps.push(lib.generatorToPromise(upload(options, ctx, ctx._file[n])));
+                    ps.push(lib.generatorToPromise(upload)(options, ctx._file[n]));
                 }
                 return Promise.all(ps);
             }
