@@ -1,6 +1,6 @@
 {
   "name": "think_upload",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Upload files for ThinkKoa.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "file-type": "^6.2.0",
+    "mime-types": "^2.1.17",
     "read-chunk": "^2.1.0",
     "think_lib": "^1.x.x"
   }
