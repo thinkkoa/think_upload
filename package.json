@@ -1,7 +1,7 @@
 {
   "name": "think_upload",
-  "version": "1.0.7",
-  "description": "Upload files for ThinkKoa.",
+  "version": "2.0.0",
+  "description": "Upload files Middleware for ThinkKoa.",
   "main": "index.js",
   "scripts": {
     "test": "npm run eslint",
@@ -10,21 +10,24 @@
     "eslint": "eslint index.js"
   },
   "engines": {
-    "node": ">6.0.0"
+    "node": ">8.0.0"
   },
   "author": "richenlin",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thinkkoa/think_upload/issues"
+  },
+  "homepage": "https://github.com/thinkkoa/think_upload",
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-eslint": "^7.2.3",
-    "eslint": "^3.15.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.2.0"
+    "eslint": "^4.4.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^3.5.0",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
     "file-type": "^6.2.0",
     "mime-types": "^2.1.17",
     "read-chunk": "^2.1.0",
-    "think_lib": "^1.x.x"
+    "think_lib": "^2.x.x"
   }
 }

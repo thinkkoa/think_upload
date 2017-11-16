@@ -16,7 +16,7 @@ const defaultOptions = {
     file_allow_type: 'jpg|jpeg|png|bmp|gif|xls|doc|docx|zip|rar|ipa|apk', //允许上传的文件类型
 
     // upload_type='local'
-    file_save_path: `${think.root_path}/static/uploads/`, //上传文件保存目录
+    file_save_path: `${process.env.ROOT_PATH}/static/uploads/`, //上传文件保存目录
     file_save_url: '/uploads/', //上传文件目录访问URL
 
     // upload_type='ftp'
@@ -34,7 +34,7 @@ const defaultOptions = {
     ali_url: '', //阿里云OSS url,可以是OSS默认域名，也可以是绑定的自定义域名
 };
 
-module.exports = function (options) {
+module.exports = function (options, app) {
     options = options ? lib.extend(defaultOptions, options, true) : defaultOptions;
     return function (ctx, next) {
         lib.define(ctx, 'uploadFile', function () {
