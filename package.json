@@ -25,7 +25,7 @@
     "supertest": "^3.0.0"
   },
   "dependencies": {
-    "file-type": "^6.2.0",
+    "file-type": "^7.3.0",
     "mime-types": "^2.1.17",
     "read-chunk": "^2.1.0",
     "think_lib": "^2.x.x"
